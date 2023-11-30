@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-export default function LoginPage() {
+
+export default function LoginForm() {
   const [inputValue, setInputValue] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -10,19 +11,17 @@ export default function LoginPage() {
     setInputValue(e.target.value);
   };
   return (
-    <div>
+    <form action="submit" onSubmit={handleSubmit}>
       <h1>Fuel Your Vibe</h1>
       <h2>Connect To Tribe</h2>
-      <form action="submit" onSubmit={handleSubmit}>
-        <input
-          value={inputValue}
-          onChange={handleChange}
-          type="text"
-          placeholder="Enter your name..."
-          required
-        />
-        <button>My Coffee Space</button>
-      </form>
-    </div>
+      <input
+        value={inputValue}
+        onChange={handleChange}
+        type="text"
+        placeholder="Enter your name..."
+        required
+      />
+      <button>My Coffee Space</button>
+    </form>
   );
 }
